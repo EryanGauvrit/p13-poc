@@ -1,0 +1,17 @@
+<main style="padding: 20px">
+  <h1>Your Car Your Way App</h1>
+  <h2>POC - Chat</h2>
+  <form class="form" [formGroup]="form" (ngSubmit)="send()">
+    <input placeholder="Nom" formControlName="name" />
+    <input placeholder="Message" formControlName="message" />
+    <button type="submit" [disabled]="form.invalid">Envoyer</button>
+  </form>
+
+  <ul>
+    @for (msg of messages; track $index) {
+    <li>
+      <strong>{{ msg.sender }}:</strong> {{ msg.content }}
+    </li>
+    }
+  </ul>
+</main>
